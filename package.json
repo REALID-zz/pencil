@@ -1,0 +1,12 @@
+{
+  "name": "chronicles-of-the-mind",
+  "version": "1.0.0",
+  "description": "Chronicles of the Mind: Genesis Pitch — D&AD Submission",
+  "scripts": {
+    "export": "node export.js",
+    "preview": "start pitch-deck.html"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.0.0"
+  }
+}

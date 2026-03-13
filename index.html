@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MENGZHEN YANG — Chronicles of the Mind</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+
+  :root {
+    --black: #000;
+    --bg: #050505;
+    --surface: #0a0a0a;
+    --border: #1a1a1a;
+    --gray-900: #111;
+    --gray-800: #1a1a1a;
+    --gray-700: #2a2a2a;
+    --gray-600: #3a3a3a;
+    --gray-500: #555;
+    --gray-400: #777;
+    --gray-300: #999;
+    --gray-200: #bbb;
+    --white: #e8e8e8;
+    --red: #8a2020;
+    --red-dim: #4a1515;
+    --gold: #c8a040;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  ::selection { background: var(--red); color: var(--white); }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Inter', 'Arial', sans-serif;
+    background: var(--bg);
+    color: var(--gray-300);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  a { color: var(--gray-400); text-decoration: none; transition: color 0.3s; }
+  a:hover { color: var(--white); }
+
+  /* ═══ NAV ═══ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(5,5,5,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-brand {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    font-weight: 300;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(138,32,32,0.06) 0%, transparent 60%);
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 200;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-indent: 0.4em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 1px;
+    background: var(--red);
+    margin: 40px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-sub {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    font-weight: 300;
+    text-align: center;
+    line-height: 2.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* ═══ SECTIONS ═══ */
+  section {
+    padding: 120px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    font-weight: 400;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-800);
+  }
+
+  /* ═══ MANIFESTO ═══ */
+  .manifesto-text {
+    font-size: clamp(18px, 2.5vw, 30px);
+    font-weight: 300;
+    line-height: 2;
+    color: var(--gray-200);
+    max-width: 900px;
+  }
+
+  .manifesto-text em {
+    font-style: italic;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .manifesto-attr {
+    margin-top: 50px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gray-600);
+  }
+
+  /* ═══ POWER GRID ═══ */
+  .power-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--gray-800);
+    border: 1px solid var(--gray-800);
+  }
+
+  @media (max-width: 768px) { .power-grid { grid-template-columns: 1fr; } }
+
+  .power-cell {
+    background: var(--bg);
+    padding: 50px 40px;
+  }
+
+  .power-num {
+    font-size: 48px;
+    font-weight: 100;
+    color: var(--red-dim);
+    margin-bottom: 16px;
+  }
+
+  .power-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .power-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--gray-400);
+  }
+
+  /* ═══ GALLERY ═══ */
+  .gallery-grid {
+    display: grid;
+    gap: 2px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: grayscale(20%);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.03);
+    filter: grayscale(0%);
+  }
+
+  .gallery-item .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .gallery-item:hover .overlay { opacity: 1; }
+
+  .overlay-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .overlay-sub {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gray-400);
+    text-transform: uppercase;
+  }
+
+  .overlay-medium {
+    font-size: 10px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* Physical works - large format */
+  .physical-row {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2px;
+  }
+
+  .physical-row .gallery-item { aspect-ratio: 3/4; }
+
+  /* Digital works */
+  .digital-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .digital-row .gallery-item { aspect-ratio: 1/1; }
+
+  /* Feature work - full width */
+  .feature-row {
+    grid-template-columns: 1fr;
+    margin-bottom: 2px;
+  }
+
+  .feature-row .gallery-item {
+    aspect-ratio: 16/9;
+    max-height: 80vh;
+  }
+
+  @media (max-width: 768px) {
+    .physical-row, .digital-row { grid-template-columns: 1fr; }
+  }
+
+  /* ═══ THE ASK ═══ */
+  .ask-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--gray-800);
+    border: 1px solid var(--gray-800);
+  }
+
+  @media (max-width: 768px) { .ask-grid { grid-template-columns: 1fr; } }
+
+  .ask-cell {
+    background: var(--bg);
+    padding: 50px 40px;
+  }
+
+  .ask-num {
+    font-size: 36px;
+    font-weight: 100;
+    color: var(--red-dim);
+    margin-bottom: 20px;
+  }
+
+  .ask-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .ask-desc {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--gray-400);
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid var(--gray-800);
+  }
+
+  .footer-brand {
+    font-size: 12px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    margin-bottom: 20px;
+  }
+
+  .footer-info {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray-700);
+    line-height: 2.4;
+  }
+
+  /* ═══ LIGHTBOX ═══ */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  /* ═══ WORK INFO SECTION ═══ */
+  .work-info {
+    padding: 80px 40px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .work-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) { .work-info-grid { grid-template-columns: 1fr 1fr; } }
+
+  .work-card {
+    border-top: 1px solid var(--gray-800);
+    padding-top: 20px;
+  }
+
+  .work-card-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .work-card-cn {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+  }
+
+  .work-card-type {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .work-card-desc {
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--gray-500);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Mengzhen Yang</div>
+  <ul class="nav-links">
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#sovereignty">Sovereignty</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#ask">The Ask</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="hero-title">Mengzhen Yang</h1>
+  <div class="hero-line"></div>
+  <div class="hero-sub">
+    Chronicles of the Mind<br>
+    Genesis Pitch — 2026
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</div>
+
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <div class="section-label">Artist Manifesto</div>
+  <div class="manifesto-text">
+    I refuse the partition between <em>artist</em> and <em>engineer</em>, between <em>canvas</em> and <em>laboratory</em>. Da Vinci dissected corpses to understand the machinery of God; Musk launches rockets to escape the gravity of complacency. I paint to <em>rewrite the source code of human perception</em>.
+    <br><br>
+    My work is not decoration. It is not commentary. It is a <em>post-humanist operating system</em> — a set of instructions for consciousness to evolve beyond its biological container. Each painting is a prototype. Each brushstroke is a line of code. Each exhibition is a system deployment.
+    <br><br>
+    The 21st-century artist must be <em>polymath, prophet, and provocateur</em>. We do not wait for institutions to validate us. We <em>architect the institutions ourselves</em>.
+  </div>
+  <div class="manifesto-attr">— Genesis Declaration, 2026</div>
+</section>
+
+<!-- SOVEREIGNTY -->
+<section id="sovereignty">
+  <div class="section-label">The Four Absolute Sovereignties</div>
+  <div class="power-grid">
+    <div class="power-cell">
+      <div class="power-num">I</div>
+      <div class="power-title">Sovereignty of Vision</div>
+      <div class="power-desc">The absolute right to define what constitutes art in the post-human epoch. No institution, no market, no algorithm shall dictate the perimeter of aesthetic truth.</div>
+    </div>
+    <div class="power-cell">
+      <div class="power-num">II</div>
+      <div class="power-title">Sovereignty of Medium</div>
+      <div class="power-desc">The absolute right to transcend the boundaries between physical matter and digital substrate. Oil, titanium, aerogel, neural signals, quantum states — all are pigments.</div>
+    </div>
+    <div class="power-cell">
+      <div class="power-num">III</div>
+      <div class="power-title">Sovereignty of Narrative</div>
+      <div class="power-desc">The absolute right to construct mythologies that supersede existing cultural frameworks. We engineer the primordial narratives from which future civilizations will derive meaning.</div>
+    </div>
+    <div class="power-cell">
+      <div class="power-num">IV</div>
+      <div class="power-title">Sovereignty of Institution</div>
+      <div class="power-desc">The absolute right to restructure the gallery-industrial complex from within. The artist becomes the institution. Museums are laboratories; exhibitions are experiments.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="section-label">Genesis Sequence — Works</div>
+
+  <!-- Physical Oil Paintings -->
+  <div class="gallery-grid physical-row">
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/painting-fox-studio.png" alt="Crimson Sovereign — Studio" loading="lazy">
+      <div class="overlay">
+        <div class="overlay-title">Crimson Sovereign</div>
+        <div class="overlay-sub">猩红主权者</div>
+        <div class="overlay-medium">Oil on canvas — 120×180cm — 2026</div>
+      </div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/painting-fox-closeup.png" alt="Crimson Sovereign — Detail" loading="lazy">
+      <div class="overlay">
+        <div class="overlay-title">Crimson Sovereign — Detail</div>
+        <div class="overlay-sub">猩红主权者 — 局部</div>
+        <div class="overlay-medium">Heavy impasto technique — Palette knife & brush</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fox Rider -->
+  <div class="gallery-grid feature-row">
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/fox-rider-crown.png" alt="The Astral Sovereign" loading="lazy" style="object-position: center 20%;">
+      <div class="overlay">
+        <div class="overlay-title">The Astral Sovereign</div>
+        <div class="overlay-sub">星象主权者</div>
+        <div class="overlay-medium">Digital illustration — Constellation robe series</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Works -->
+  <div class="gallery-grid digital-row">
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit — Generative" loading="lazy">
+      <div class="overlay">
+        <div class="overlay-title">Crimson Spirit</div>
+        <div class="overlay-sub">猩红之灵 — 生成艺术</div>
+        <div class="overlay-medium">Generative art — JavaScript Canvas — 2400×2400px</div>
+      </div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/digital-signal-decay.png" alt="Signal Decay — Generative" loading="lazy">
+      <div class="overlay">
+        <div class="overlay-title">Signal Decay</div>
+        <div class="overlay-sub">信号衰变 — 神经溶解</div>
+        <div class="overlay-medium">Generative art — JavaScript Canvas — 2400×2400px</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pixel Art -->
+  <div class="gallery-grid feature-row" style="margin-top: 2px;">
+    <div class="gallery-item" onclick="openLightbox(this)" style="aspect-ratio: 1/1; max-height: 60vh;">
+      <img src="assets/artwork-pixel-rider-clean.png" alt="Death Pencil Protocol" loading="lazy">
+      <div class="overlay">
+        <div class="overlay-title">Death Pencil Protocol</div>
+        <div class="overlay-sub">死亡铅笔协议</div>
+        <div class="overlay-medium">Pixel art — Digital — 1400×1400px</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK INFO -->
+<div class="work-info">
+  <div class="work-info-grid">
+    <div class="work-card">
+      <div class="work-card-type">Physical — Oil</div>
+      <div class="work-card-title">Crimson Sovereign</div>
+      <div class="work-card-cn">猩红主权者</div>
+      <div class="work-card-desc">Monumental fox rendered in violent impasto — oil paint sculpted with palette knife. The animal is not depicted but <em>constructed</em> through material force.</div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-type">Digital — Illustration</div>
+      <div class="work-card-title">The Astral Sovereign</div>
+      <div class="work-card-cn">星象主权者</div>
+      <div class="work-card-desc">Crowned figure in constellation robe. A mapping of stellar coordinates at the moment of artistic awakening. The fox as vehicle of terrestrial authority.</div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-type">Digital — Generative</div>
+      <div class="work-card-title">Crimson Spirit / Signal Decay</div>
+      <div class="work-card-cn">猩红之灵 / 信号衰变</div>
+      <div class="work-card-desc">Algorithmic translations of painterly gesture into code. Neural dissolution rendered through procedural strokes. Each execution is unique and unrepeatable.</div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-type">Digital — Pixel</div>
+      <div class="work-card-title">Death Pencil Protocol</div>
+      <div class="work-card-cn">死亡铅笔协议</div>
+      <div class="work-card-desc">Reduction to minimum resolution. The figure persists at the threshold of visibility — consciousness compressed to its most essential pixel representation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE ASK -->
+<section id="ask">
+  <div class="section-label">The Ask — What We Require</div>
+  <div class="ask-grid">
+    <div class="ask-cell">
+      <div class="ask-num">01</div>
+      <div class="ask-title">Laboratory Access</div>
+      <div class="ask-desc">Full access to a Tier-1 institutional residency program with materials science laboratory, digital fabrication suite, and climate-controlled exhibition space. Minimum 12-month tenure.</div>
+    </div>
+    <div class="ask-cell">
+      <div class="ask-num">02</div>
+      <div class="ask-title">Expert Collaboration</div>
+      <div class="ask-desc">Dedicated collaboration with specialists in fluid dynamics, quantum computing, bioengineering, and advanced materials. Not consultants — co-creators.</div>
+    </div>
+    <div class="ask-cell">
+      <div class="ask-num">03</div>
+      <div class="ask-title">R&D Fund</div>
+      <div class="ask-desc">Dedicated physical-medium R&D fund of $350,000–$500,000 USD for the development of the Genesis prototypes over a 24-month production cycle.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Mengzhen Yang</div>
+  <div class="footer-info">
+    Chronicles of the Mind — Genesis Pitch<br>
+    All works &copy; Mengzhen Yang 2026<br>
+    D&amp;AD New Blood Awards Submission
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
