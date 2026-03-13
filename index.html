@@ -31,8 +31,8 @@ nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px)}
 .scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:1;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.25);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.25}50%{opacity:.6}}
 
-.showcase{padding:0}
-.showcase-row{display:grid;gap:4px;margin-bottom:4px}
+.showcase{padding:40px 20px;max-width:1400px;margin:0 auto}
+.showcase-row{display:grid;gap:12px;margin-bottom:12px}
 .row-hero{grid-template-columns:1fr}
 .row-2{grid-template-columns:1fr 1fr}
 .row-3{grid-template-columns:1fr 1fr 1fr}
@@ -40,20 +40,18 @@ nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px)}
 .row-12{grid-template-columns:1fr 2fr}
 @media(max-width:768px){.row-2,.row-3,.row-21,.row-12{grid-template-columns:1fr}}
 
-.sc-item{position:relative;overflow:hidden;cursor:pointer}
-.sc-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,1,.3,1),filter .6s}
-.sc-item:hover img{transform:scale(1.04);filter:brightness(1.1)}
-.sc-item .sc-label{position:absolute;bottom:0;left:0;right:0;padding:24px 28px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);opacity:0;transition:opacity .4s;display:flex;justify-content:space-between;align-items:flex-end}
+.sc-item{position:relative;overflow:hidden;cursor:pointer;background:#111}
+.sc-item img{width:100%;height:auto;display:block;transition:transform 1.2s cubic-bezier(.2,1,.3,1),filter .6s}
+.sc-item:hover img{transform:scale(1.03);filter:brightness(1.1)}
+.sc-item .sc-label{position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);opacity:0;transition:opacity .4s}
 .sc-item:hover .sc-label{opacity:1}
-.sc-label .sc-title{font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:400;color:#fff}
-.sc-label .sc-medium{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.5);font-weight:300}
+.sc-label .sc-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:400;color:#fff}
+.sc-label .sc-medium{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.45);font-weight:300;margin-top:3px}
 
-.row-hero .sc-item{height:80vh}
-.row-2 .sc-item{height:60vh}
-.row-3 .sc-item{height:50vh}
-.row-21 .sc-item{height:65vh}
-.row-12 .sc-item{height:65vh}
-@media(max-width:768px){.row-hero .sc-item,.row-2 .sc-item,.row-3 .sc-item,.row-21 .sc-item,.row-12 .sc-item{height:auto} .sc-item img{height:auto;aspect-ratio:auto}}
+.row-2 .sc-item img,.row-3 .sc-item img,.row-21 .sc-item img,.row-12 .sc-item img{height:100%;object-fit:cover}
+.row-2 .sc-item,.row-21 .sc-item,.row-12 .sc-item{max-height:520px}
+.row-3 .sc-item{max-height:420px}
+@media(max-width:768px){.row-2 .sc-item,.row-3 .sc-item,.row-21 .sc-item,.row-12 .sc-item{max-height:none} .row-2 .sc-item img,.row-3 .sc-item img,.row-21 .sc-item img,.row-12 .sc-item img{height:auto;object-fit:contain}}
 
 .divider{display:flex;align-items:center;justify-content:center;padding:80px 48px;gap:24px}
 .divider .line{flex:1;height:1px;background:#1a1a1a}
@@ -98,7 +96,7 @@ footer p{font-size:9px;letter-spacing:4px;color:#1a1a1a;text-transform:uppercase
 </nav>
 
 <div class="hero">
-<div class="hero-bg"><img src="assets/painting-fox-closeup.png" alt="Crimson Sovereign"></div>
+<div class="hero-bg"><img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit"></div>
 <div class="hero-overlay"></div>
 <div class="hero-content">
 <h1>DCT</h1>
@@ -109,16 +107,37 @@ footer p{font-size:9px;letter-spacing:4px;color:#1a1a1a;text-transform:uppercase
 
 <div class="showcase" id="showcase">
 
-<div class="showcase-row row-hero">
+<div class="showcase-row row-2">
+<a class="sc-item" href="project-generative.html">
+<img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit">
+<div class="sc-label">
+<div><div class="sc-title">Crimson Spirit</div><div class="sc-medium">Generative &middot; 2400&times;2400</div></div>
+</div>
+</a>
+<a class="sc-item" href="project-generative.html">
+<img src="assets/digital-signal-decay.png" alt="Signal Decay">
+<div class="sc-label">
+<div><div class="sc-title">Signal Decay</div><div class="sc-medium">Generative &middot; 2400&times;2400</div></div>
+</div>
+</a>
+</div>
+
+<div class="showcase-row row-21">
 <a class="sc-item" href="project-oil.html">
 <img src="assets/painting-jungle-drip.png" alt="Jungle Descent">
 <div class="sc-label">
 <div><div class="sc-title">Jungle Descent</div><div class="sc-medium">Oil on canvas &middot; 2026</div></div>
 </div>
 </a>
+<a class="sc-item" href="project-oil.html">
+<img src="assets/painting-fox-closeup.png" alt="Crimson Sovereign">
+<div class="sc-label">
+<div><div class="sc-title">Crimson Sovereign</div><div class="sc-medium">Oil on canvas</div></div>
+</div>
+</a>
 </div>
 
-<div class="showcase-row row-21">
+<div class="showcase-row row-3">
 <a class="sc-item" href="project-glitch.html">
 <img src="assets/portrait-glitch-blue.png" alt="Glitch Blue">
 <div class="sc-label">
@@ -131,22 +150,19 @@ footer p{font-size:9px;letter-spacing:4px;color:#1a1a1a;text-transform:uppercase
 <div><div class="sc-title">Portrait Glitch — Pink</div><div class="sc-medium">Charcoal + digital</div></div>
 </div>
 </a>
-</div>
-
-<div class="showcase-row row-hero">
-<a class="sc-item" href="project-oil.html">
-<img src="assets/abstract-impasto-final.png" alt="I Am a Growth">
+<a class="sc-item" href="project-glitch.html">
+<img src="assets/portrait-glitch-green-drip.png" alt="Glitch Green">
 <div class="sc-label">
-<div><div class="sc-title">I Am a Growth</div><div class="sc-medium">Oil on canvas &middot; 2015–2019 &middot; 3 years</div></div>
+<div><div class="sc-title">Glitch Green Drip</div><div class="sc-medium">Mixed media + digital</div></div>
 </div>
 </a>
 </div>
 
 <div class="showcase-row row-12">
-<a class="sc-item" href="project-generative.html">
-<img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit">
+<a class="sc-item" href="project-oil.html">
+<img src="assets/abstract-impasto-final.png" alt="I Am a Growth">
 <div class="sc-label">
-<div><div class="sc-title">Crimson Spirit</div><div class="sc-medium">Generative &middot; JavaScript Canvas</div></div>
+<div><div class="sc-title">I Am a Growth</div><div class="sc-medium">Oil on canvas &middot; 3 years &middot; 2015–2019</div></div>
 </div>
 </a>
 <a class="sc-item" href="project-astral.html">
@@ -157,32 +173,11 @@ footer p{font-size:9px;letter-spacing:4px;color:#1a1a1a;text-transform:uppercase
 </a>
 </div>
 
-<div class="showcase-row row-3">
+<div class="showcase-row row-2">
 <a class="sc-item" href="project-oil.html">
 <img src="assets/achilla-oil-2017.png" alt="Achilla">
 <div class="sc-label">
 <div><div class="sc-title">Achilla</div><div class="sc-medium">Oil on canvas &middot; 2017</div></div>
-</div>
-</a>
-<a class="sc-item" href="project-glitch.html">
-<img src="assets/portrait-glitch-green-drip.png" alt="Glitch Green">
-<div class="sc-label">
-<div><div class="sc-title">Glitch Green Drip</div><div class="sc-medium">Mixed media + digital</div></div>
-</div>
-</a>
-<a class="sc-item" href="project-generative.html">
-<img src="assets/digital-signal-decay.png" alt="Signal Decay">
-<div class="sc-label">
-<div><div class="sc-title">Signal Decay</div><div class="sc-medium">Generative &middot; JavaScript Canvas</div></div>
-</div>
-</a>
-</div>
-
-<div class="showcase-row row-2">
-<a class="sc-item" href="project-glitch.html">
-<img src="assets/portrait-glitch-halo.png" alt="Saint of Currency">
-<div class="sc-label">
-<div><div class="sc-title">Saint of Currency</div><div class="sc-medium">Mixed media + digital</div></div>
 </div>
 </a>
 <a class="sc-item" href="project-oil.html">
