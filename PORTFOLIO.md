@@ -2,9 +2,14 @@
 
 ## 艺术家信息
 - **姓名：** 楊夢真 / Mengzhen Yang
-- **Based in：** LA
+- **出生：** 1993
+- **性别：** 女
+- **国籍：** 中国（安徽马鞍山）
+- **现居：** Los Angeles, CA 91107
 - **邮箱：** hihelloaikenni@gmail.com
 - **展示站：** https://realid-zz.github.io/pencil/
+- **创作方式：** 以手绘油画为主，极少使用数字工具。每幅画创作周期长达数年。
+- **艺术方向：** Fine Art — Drawing, Painting
 
 ---
 
@@ -17,6 +22,8 @@
 | 1 | `achilla-oil-2017.png` | **Achilla（阿奇莱）** | 2017 | 36×24 in | Oil on canvas | 创作灵感：冷静、舒适、幽蓝但不刺骨的空间 |
 | 2 | `painting-fox-studio.png` | **Crimson Sovereign（猩红主权者）** | 2026 | ~120×180 cm | Oil on canvas, palette knife impasto | 工作室全景实拍 |
 | 3 | `painting-fox-closeup.png` | **Crimson Sovereign — Detail** | 2026 | — | Oil on canvas | 局部特写 |
+| 4 | `abstract-impasto-wip.png` | **I Am a Growth（我是一个生长）— 创作中** | 2015–2019 | 26×24×1 in | Oil on canvas | 创作3年+，生命力与成长的象征，售价 $60k |
+| 5 | `abstract-impasto-final.png` | **I Am a Growth（我是一个生长）— 完成** | 2015–2019 | 26×24×1 in | Oil on canvas | 丛林世界中沉静而勇敢的生命力，绿色=生命 |
 
 ### 二、肖像 Glitch 系列 / Portrait Glitch Series
 
@@ -51,44 +58,53 @@
 | 15 | `artwork-pixel-rider.png` | **Death Pencil Protocol 原版** | Pixel art, digital |
 | 16 | `artwork-pixel-rider-clean.png` | **Death Pencil Protocol（死亡铅笔协议）** | Pixel art, cleaned + 3x |
 
+### 六、素描 / Drawing
+
+| # | 文件名 | 作品名 | 媒介 |
+|---|--------|--------|------|
+| 17 | `horse-charcoal.png` | **马头素描** | Charcoal on paper |
+| 18 | `lotus-study.png` | **莲蓬写生** | Watercolor / gouache study from life |
+
+### 七、肖像 Glitch 系列补充
+
+| # | 文件名 | 描述 | 媒介 |
+|---|--------|------|------|
+| 19 | `portrait-glitch-halo.png` | 肖像 Glitch — 绿色调 + 光环 + $ 符号 | Mixed media + digital glitch |
+
+### 八、艺术家工作照 / Artist Documentation
+
+| # | 文件名 | 描述 |
+|---|--------|------|
+| 20 | `artist-studio-la.png` | LA工作室 — 黑白环境照（冲浪板、面具、骷髅画） |
+| 21 | `artist-with-fox-painting.png` | 艺术家与《猩红主权者》合影 |
+
+### 九、新系列计划 / Upcoming Series
+
+- **系列名称：** 新的系列（暂定）
+- **阶段：** 第一阶段 → 第二阶段
+- **方向：** 围绕"漂浮感的人物形象"展开，具象到人身上
+- **状态：** 概念阶段，可调整
+
 ---
 
-## 参赛计划
+## 参赛 & 驻留计划
 
-### 1. Beautiful Bizarre Art Prize 2026
-- **截止：** 2026年7月17日
-- **费用：** $40/件
-- **投稿方案：**
-  - Painting 类别 → `painting-fox-closeup.png`（猩红主权者）
-  - Painting 类别 → `achilla-oil-2017.png`（阿奇莱）
-  - Digital Art 类别 → `portrait-glitch-pink.png`（肖像 Glitch 系列）
-- **状态：** ⏳ 待确认后提交
+> 详见 `FREE-RESIDENCIES.md` 和 `BEAUTIFUL-BIZARRE-ENTRY.md`
 
-### 2. JIA 日本插画奖 2026
-- **截止：** 2026年6月30日
-- **费用：** ¥5,000/件
-- **投稿方案：**
-  - `fox-rider-crown.png`（星象主权者）
-  - `achilla-oil-2017.png`（阿奇莱）
-- **状态：** ⏳ 4月2日开放投稿
-
-### 3. SoulScapes 泰国清迈驻留
-- **截止：** 2026年5月15日
-- **费用：** 免费申请
-- **投稿方案：** 用完整作品集 + 展示站链接申请
-- **状态：** ⏳ 待准备 Artist Statement
-
-### 4. Prisma Art Prize 2026（罗马）
-- **截止：** 2026年5月10日
-- **费用：** €34（1-3件）
-- **投稿方案：** 油画 + 肖像 Glitch 系列
-- **状态：** ⏳ 待确认
+| 截止日期 | 项目 | 费用 | 状态 |
+|----------|------|------|------|
+| **3月28日** | 🔴 Galveston Artist Residency（10个月，$1,400/月） | 免费 | ⏳ 紧急待申请 |
+| **3月30日** | 🟡 Monira Residency 芝加哥（6个月，免费工作室） | 免费 | ⏳ 待开放 |
+| **3月31日** | 🟡 Saari Residence 芬兰（2个月，€2,700+/月） | 免费 | ⏳ 考虑中（2027无工作室） |
+| **5月10日** | Prisma Art Prize 罗马（现金+展览） | €34 | ⏳ 待确认 |
+| **7月17日** | Beautiful Bizarre Art Prize（$76k总池） | $40/件 | ⏳ 材料已准备 |
+| **9月10日** | 🔵 MacDowell Fellowship（全美顶级） | 免费 | ⏳ 待准备 |
 
 ---
 
 ## 提交前确认清单
-- [ ] 确认每个比赛的投稿作品选择
-- [ ] 确认 Artist Statement 内容
+- [ ] 确认每个项目的投稿作品选择
+- [ ] 确认 Artist Statement / 工作计划
 - [ ] 确认个人信息无误
-- [ ] 确认付款方式
-- [ ] 提交
+- [ ] 确认付款方式（付费项目）
+- [ ] 用户确认 OK 后提交
