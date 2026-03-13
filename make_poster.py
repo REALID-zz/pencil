@@ -5,15 +5,18 @@ img = Image.open('assets/hero-portrait.png')
 w, h = img.size
 print(f'Original: {w}x{h}')
 
-target_h = int(w * 9 / 16)
-top = int(h * 0.05)
-bottom = top + target_h
-crop = img.crop((0, top, w, bottom))
-print(f'Cropped face area: {crop.size[0]}x{crop.size[1]}')
+# Red box area: head to shoulders, roughly top 10% to 55% of height, with some side margin
+top = int(h * 0.08)
+bottom = int(h * 0.52)
+left = int(w * 0.05)
+right = int(w * 0.95)
 
-ratio = 1920 / crop.size[0]
-final = crop.resize((1920, int(crop.size[1] * ratio)), Image.LANCZOS)
-final = ImageEnhance.Sharpness(final).enhance(1.4)
+crop = img.crop((left, top, right, bottom))
+print(f'Cropped: {crop.size[0]}x{crop.size[1]}')
+
+scale = 3
+final = crop.resize((crop.size[0] * scale, crop.size[1] * scale), Image.LANCZOS)
+final = ImageEnhance.Sharpness(final).enhance(1.3)
 final.save('assets/video-poster.jpg', 'JPEG', quality=92)
 
 sz = os.path.getsize('assets/video-poster.jpg') // 1024
