@@ -24,6 +24,7 @@
 | 3 | `painting-fox-closeup.png` | **Crimson Sovereign — Detail** | 2026 | — | Oil on canvas | 局部特写 |
 | 4 | `abstract-impasto-wip.png` | **I Am a Growth（我是一个生长）— 创作中** | 2015–2019 | 26×24×1 in | Oil on canvas | 创作3年+，生命力与成长的象征，售价 $60k |
 | 5 | `abstract-impasto-final.png` | **I Am a Growth（我是一个生长）— 完成** | 2015–2019 | 26×24×1 in | Oil on canvas | 丛林世界中沉静而勇敢的生命力，绿色=生命 |
+| 6 | `painting-jungle-drip.png` | **Jungle Descent（丛林坠落）** | — | — | Oil on canvas | 深蓝暗绿丛林，藤蔓花朵梯子，白色滴流，极富层次 |
 
 ### 二、肖像 Glitch 系列 / Portrait Glitch Series
 
