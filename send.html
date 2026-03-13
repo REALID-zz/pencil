@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>DCT - 立即发送</title>
+<style>
+body{font-family:Arial,sans-serif;background:#111;color:#eee;padding:40px;max-width:900px;margin:0 auto}
+h1{font-size:24px;margin-bottom:8px}
+p.sub{color:#888;margin-bottom:20px;font-size:13px}
+.go{background:#c0392b;color:#fff;border:none;padding:18px 60px;font-size:20px;border-radius:6px;cursor:pointer;font-weight:bold;display:block;margin-bottom:30px;width:100%;text-align:center}
+.go:hover{background:#e74c3c}
+.card{background:#1a1a1a;border:1px solid #333;padding:16px 20px;margin-bottom:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.card .left h3{margin:0;font-size:14px}
+.card .left .to{color:#4a9eff;font-size:12px;margin-top:4px}
+.card .right{flex-shrink:0}
+.card .right a{background:#333;color:#fff;padding:8px 20px;border-radius:4px;text-decoration:none;font-size:12px}
+.card .right a:hover{background:#555}
+.done{color:#4a4;margin-top:20px;font-size:13px;text-align:center}
+</style>
+<script>
+var bio = "Mengzhen Yang (DCT) is a Chinese visual artist born in 1993 in Ma'anshan, China. She studied fine art at Gwangju University in South Korea before relocating to the United States, where she spent nearly a decade building her professional practice in Los Angeles and New York.\n\nHer work has been exhibited internationally at the Boston Asia Contemporary Art Exhibition (BACAF 2016), the World Trade Center's THE OCULUS ART SHOW in New York, and the CADA exhibition at 415 Broadway, New York. She has shown with CHAMELEON GALLERY (New York) and collaborated with LA-based street fashion brand 212'FUN.\n\nIn 2020, Yang was recognized as one of the AACYF Top 30 Under 30 Outstanding Chinese in the United States and received a Certificate of Congressional Recognition from U.S. Rep. Gilbert R. Cisneros Jr. (California, 39th District). She served as Artist Coordinator of the California Music and Art Alliance (CAMAC).\n\nYang holds a recommendation from Prof. Xiang Jian, University of Southern California (USC), who is also a collector of her oil paintings.\n\nFor over a decade, Yang has worked exclusively by hand \u2014 oil on canvas, charcoal, watercolor \u2014 creating large-scale paintings through palette knife and impasto techniques. Her painting \"I Am a Growth\" took over three years. Most of her works originate from dreams. Recently, she began exploring traditional painting and digital media.\n\nPortfolio: https://realid-zz.github.io/pencil/\nReference: Prof. Xiang Jian, USC \u2014 xjian@usc.edu";
+
+function g(to, su, body) {
+  return 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + '&su=' + encodeURIComponent(su) + '&body=' + encodeURIComponent(body);
+}
+
+var E = [
+  {to:'noname.studio@yahoo.com', su:'Artist Residency Application \u2014 Mengzhen Yang (DCT)', body:'Dear Noname Studio Selection Committee,\n\nI am writing to formally apply for the artist residency program at Noname Studio in Zhujiajiao, Shanghai.\n\n' + bio + '\n\nRESIDENCY PROPOSAL\nI wish to apply for a 2-3 month residency to develop a new series of large-scale oil paintings. The 300sqm studio would be ideal for my practice. I am pleased to donate one work to the foundation collection.\n\nRespectfully,\nMengzhen Yang (DCT)\nhihelloaikenni@gmail.com'},
+  {to:'residency@serlachius.fi', su:'Residency Application 2027 \u2014 Mengzhen Yang (DCT), Visual Artist', body:'Dear Anita Hannunen and the Serlachius Residency Selection Committee,\n\nI am writing to apply for the Serlachius Residency for 2027. I have also submitted the formal application through the Webropol online form.\n\n' + bio + '\n\nRESIDENCY PROPOSAL: Between Dream and Material \u2014 Large-Scale Oil Painting Series\nI propose to develop new large-scale oil paintings during a 2-4 month residency, inspired by Finnish landscape, light, and the dialogue between nature and industrial heritage in Mantta. I would welcome organizing an exhibition during my stay.\n\nWarm regards,\nMengzhen Yang (DCT)\nhihelloaikenni@gmail.com'},
+  {to:'info@corridorfoundation.com', su:'Artist Residency Inquiry \u2014 Mengzhen Yang (DCT)', body:'Dear Corridor Foundation Team,\n\nI am writing to inquire about the current availability of your artist residency program in Shenzhen.\n\n' + bio + '\n\nCould you kindly advise whether the residency is currently accepting applications?\n\nBest regards,\nMengzhen Yang (DCT)\nhihelloaikenni@gmail.com'},
+  {to:'artpeacehotel@swatch.com', su:'Artist-in-Residence Application \u2014 Mengzhen Yang (DCT)', body:'Dear Swatch Art Peace Hotel Selection Committee,\n\nI am writing to apply for the artist-in-residence program at the Swatch Art Peace Hotel.\n\n' + bio + '\n\nRESIDENCY PROPOSAL\nI wish to apply for a 3-6 month residency to create large-scale oil paintings examining the intersection of Eastern and Western painterly traditions. Having spent years between South Korea and the United States, and now returned to China, I seek to synthesize these cross-cultural experiences. Shanghai\'s Bund provides the ideal context.\n\nRespectfully,\nMengzhen Yang (DCT)\nhihelloaikenni@gmail.com'}
+];
+
+function openAll() {
+  for (var i = 0; i < E.length; i++) {
+    (function(idx) {
+      setTimeout(function() {
+        window.open(g(E[idx].to, E[idx].su, E[idx].body), '_blank');
+      }, idx * 1500);
+    })(i);
+  }
+}
+
+function openOne(i) {
+  window.open(g(E[i].to, E[i].su, E[i].body), '_blank');
+}
+</script>
+</head>
+<body>
+<h1>DCT \u2014 4\u5c01\u90ae\u4ef6\u7acb\u523b\u53d1\u9001</h1>
+<p class="sub">\u5168\u90e8\u5305\u542b\u5b8c\u6574\u5c65\u5386\uff08\u97e9\u56fd\u5149\u5dde\u5927\u5b66 + \u7f8e\u56fd\u8fd110\u5e74 + \u56fd\u4f1a\u5609\u5956 + USC\u63a8\u8350\u4eba\uff09</p>
+
+<button class="go" onclick="openAll()">\u26a1 \u4e00\u952e\u6253\u5f00\u5168\u90e8 4 \u5c01 Gmail \u7a97\u53e3</button>
+
+<div class="card"><div class="left"><h3>\u2460 Noname Studio \u2014 \u4e0a\u6d77\u6731\u5bb6\u89d2\uff08\u514d\u8d39\uff09</h3><div class="to">noname.studio@yahoo.com</div></div><div class="right"><a href="javascript:openOne(0)">\u5355\u72ec\u6253\u5f00</a></div></div>
+
+<div class="card"><div class="left"><h3>\u2461 Serlachius \u2014 \u82ac\u5170\uff08\u514d\u8d39\uff09</h3><div class="to">residency@serlachius.fi</div></div><div class="right"><a href="javascript:openOne(1)">\u5355\u72ec\u6253\u5f00</a></div></div>
+
+<div class="card"><div class="left"><h3>\u2462 Corridor Foundation \u2014 \u6df1\u5733\uff08\u514d\u8d39\uff09</h3><div class="to">info@corridorfoundation.com</div></div><div class="right"><a href="javascript:openOne(2)">\u5355\u72ec\u6253\u5f00</a></div></div>
+
+<div class="card"><div class="left"><h3>\u2463 Swatch Art Peace Hotel \u2014 \u4e0a\u6d77\u5916\u6ee9</h3><div class="to">artpeacehotel@swatch.com</div></div><div class="right"><a href="javascript:openOne(3)">\u5355\u72ec\u6253\u5f00</a></div></div>
+
+<p class="done">\u70b9\u51fb\u7ea2\u8272\u6309\u94ae \u2192 4\u4e2a Gmail \u7a97\u53e3\u4f9d\u6b21\u5f39\u51fa \u2192 \u6bcf\u4e2a\u7a97\u53e3\u70b9\u201c\u53d1\u9001\u201d\u5373\u53ef</p>
+</body></html>
