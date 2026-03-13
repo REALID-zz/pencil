@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative Art — Mengzhen Yang</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Helvetica Neue',sans-serif;background:#050505;color:#888;-webkit-font-smoothing:antialiased}
+a{color:#444;text-decoration:none;transition:color .3s}a:hover{color:#fff}
+::selection{background:#8a2020;color:#fff}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,5,.92);backdrop-filter:blur(20px)}
+.n-name{font-size:12px;letter-spacing:5px;text-transform:uppercase;font-weight:400;color:#fff}
+.n-back{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#444}
+
+.header{padding:140px 48px 60px;max-width:900px}
+.header h1{font-size:clamp(24px,3vw,36px);font-weight:200;letter-spacing:.2em;text-transform:uppercase;color:#ccc}
+.header .line{width:40px;height:1px;background:#222;margin:28px 0}
+.header p{font-size:13px;line-height:2;color:#555;max-width:640px}
+
+.pair{max-width:1200px;margin:0 auto;padding:0 48px 10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pair img{width:100%;display:block}
+@media(max-width:768px){.pair{grid-template-columns:1fr}}
+
+.captions{max-width:1200px;margin:0 auto;padding:10px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.captions .c{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444}
+@media(max-width:768px){.captions{grid-template-columns:1fr}}
+
+.solo{max-width:700px;margin:0 auto;padding:0 48px 10px}
+.solo img{width:100%;display:block;background:#000}
+.solo-cap{max-width:700px;margin:0 auto;padding:10px 48px 120px}
+.solo-cap .c{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444}
+
+footer{text-align:center;padding:40px;border-top:1px solid #111}
+footer p{font-size:9px;letter-spacing:4px;color:#222;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="n-name" href="index.html">Mengzhen Yang</a>
+<a class="n-back" href="index.html">&larr; All Projects</a>
+</nav>
+
+<div class="header">
+<h1>Generative Art</h1>
+<div class="line"></div>
+<p>Algorithmic translations of painterly gesture into code. Each brushstroke is procedural, each execution unique. The hand-made becomes machine-made — but the energy persists.</p>
+</div>
+
+<div class="pair">
+<img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit">
+<img src="assets/digital-signal-decay.png" alt="Signal Decay">
+</div>
+<div class="captions">
+<div class="c">Crimson Spirit &middot; JavaScript Canvas &middot; 2400 &times; 2400</div>
+<div class="c">Signal Decay &middot; JavaScript Canvas &middot; 2400 &times; 2400</div>
+</div>
+
+<div class="solo">
+<img src="assets/artwork-pixel-rider-clean.png" alt="Death Pencil Protocol">
+</div>
+<div class="solo-cap">
+<div class="c">Death Pencil Protocol &middot; Pixel Art &middot; 1400 &times; 1400</div>
+</div>
+
+<footer><p>&copy; 2026 Mengzhen Yang</p></footer>
+</body>
+</html>

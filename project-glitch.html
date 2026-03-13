@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portrait Glitch — Mengzhen Yang</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Helvetica Neue',sans-serif;background:#111;color:#ddd;-webkit-font-smoothing:antialiased}
+a{color:#666;text-decoration:none;transition:color .3s}a:hover{color:#fff}
+::selection{background:#fff;color:#000}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(17,17,17,.92);backdrop-filter:blur(20px)}
+.n-name{font-size:12px;letter-spacing:5px;text-transform:uppercase;font-weight:400;color:#fff}
+.n-back{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#555}
+
+.header{padding:140px 48px 60px;max-width:900px}
+.header h1{font-size:clamp(24px,3vw,36px);font-weight:200;letter-spacing:.2em;text-transform:uppercase;color:#eee}
+.header .line{width:40px;height:1px;background:#333;margin:28px 0}
+.header p{font-size:13px;line-height:2;color:#666;max-width:640px}
+
+.grid{max-width:1200px;margin:0 auto;padding:0 48px 120px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.grid img{width:100%;display:block;transition:filter .4s}
+.grid img:hover{filter:brightness(1.15)}
+@media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+.feature{max-width:700px;margin:0 auto;padding:0 48px 80px}
+.feature img{width:100%;display:block}
+.feature .cap{padding:12px 0 0;font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase}
+
+footer{text-align:center;padding:40px;border-top:1px solid #1a1a1a}
+footer p{font-size:9px;letter-spacing:4px;color:#333;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="n-name" href="index.html">Mengzhen Yang</a>
+<a class="n-back" href="index.html">&larr; All Projects</a>
+</nav>
+
+<div class="header">
+<h1>Portrait Glitch</h1>
+<div class="line"></div>
+<p>A series where hand-drawn charcoal portraits are progressively disrupted by digital overlays — pixel fragments, color washes, symbolic elements. Identity fractures into signal. The hand-made collides with the machine-generated.</p>
+</div>
+
+<div class="feature">
+<img src="assets/portrait-glitch-halo.png" alt="Saint of Currency">
+<div class="cap">Saint of Currency &middot; Mixed media + digital</div>
+</div>
+
+<div class="grid">
+<img src="assets/portrait-base.png" alt="Base — Charcoal">
+<img src="assets/portrait-crown.png" alt="Crown overlay">
+<img src="assets/portrait-outline.png" alt="Outline overlay">
+<img src="assets/portrait-glitch-blue.png" alt="Glitch Blue">
+<img src="assets/portrait-glitch-pink.png" alt="Glitch Pink">
+<img src="assets/portrait-glitch-green-drip.png" alt="Glitch Green">
+<img src="assets/portrait-glitch-frog.png" alt="Glitch Frog">
+</div>
+
+<footer><p>&copy; 2026 Mengzhen Yang</p></footer>
+</body>
+</html>
