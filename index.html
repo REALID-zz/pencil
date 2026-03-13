@@ -3,118 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mengzhen Yang</title>
-<meta name="description" content="Mengzhen Yang — Visual Artist. Oil painting, mixed media, digital, generative art.">
+<title>DCT — Mengzhen Yang</title>
+<meta name="description" content="DCT / Mengzhen Yang — Visual Artist. Dreams, Canvas, Technology.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter','Helvetica Neue',sans-serif;background:#fafafa;color:#222;-webkit-font-smoothing:antialiased}
-a{color:#999;text-decoration:none;transition:color .3s}a:hover{color:#000}
-::selection{background:#000;color:#fff}
+body{font-family:'Inter','Helvetica Neue',sans-serif;background:#0a0a0a;color:#eee;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:#c0392b;color:#fff}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,250,.92);backdrop-filter:blur(20px)}
-.n-name{font-size:12px;letter-spacing:5px;text-transform:uppercase;font-weight:400;color:#000}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;background:transparent;transition:background .4s}
+nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px)}
+.n-logo{font-size:18px;letter-spacing:8px;text-transform:uppercase;font-weight:500;color:#fff}
 .n-links{display:flex;gap:32px;list-style:none}
-.n-links a{font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:400;color:#999}
-.n-links a:hover{color:#000}
+.n-links a{font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.5);transition:color .3s}
+.n-links a:hover{color:#fff}
 
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px}
-.hero h1{font-size:clamp(28px,4vw,48px);font-weight:200;letter-spacing:.35em;text-transform:uppercase;color:#111;text-indent:.35em}
-.hero-line{width:40px;height:1px;background:#ccc;margin:32px 0}
-.hero p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#aaa;font-weight:300;line-height:2.2}
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;transition:transform 20s linear}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero:hover .hero-bg{transform:scale(1.03)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.2) 100%)}
+.hero-content{position:relative;z-index:1;padding:60px;max-width:800px}
+.hero h1{font-size:clamp(56px,8vw,100px);font-weight:200;letter-spacing:.5em;text-transform:uppercase;color:#fff;text-indent:.5em;line-height:1}
+.hero-sub{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:300;margin-top:20px}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:1;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.25);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.6}}
 
-.projects{max-width:1200px;margin:0 auto;padding:0 40px 120px}
-.p-label{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#bbb;font-weight:400;margin-bottom:48px}
-.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:768px){.p-grid{grid-template-columns:1fr}}
-.p-card{display:block;position:relative;overflow:hidden;background:#f0f0f0}
-.p-card img{width:100%;display:block;transition:transform .8s cubic-bezier(.2,1,.3,1);filter:brightness(.97)}
-.p-card:hover img{transform:scale(1.015);filter:brightness(1)}
-.p-card .p-info{padding:20px 0 8px}
-.p-card .p-title{font-size:13px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:#333}
-.p-card .p-sub{font-size:10px;color:#aaa;letter-spacing:2px;margin-top:4px;font-weight:300}
+.showcase{padding:0}
+.showcase-row{display:grid;gap:4px;margin-bottom:4px}
+.row-hero{grid-template-columns:1fr}
+.row-2{grid-template-columns:1fr 1fr}
+.row-3{grid-template-columns:1fr 1fr 1fr}
+.row-21{grid-template-columns:2fr 1fr}
+.row-12{grid-template-columns:1fr 2fr}
+@media(max-width:768px){.row-2,.row-3,.row-21,.row-12{grid-template-columns:1fr}}
 
-.about-strip{max-width:1200px;margin:0 auto;padding:120px 40px;display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start;border-top:1px solid #eee}
-.about-strip img{width:100%;filter:grayscale(.15)}
-.about-strip .txt h2{font-size:22px;font-weight:200;color:#333;line-height:1.7;margin-bottom:24px;letter-spacing:.05em}
-.about-strip .txt p{font-size:13px;line-height:2;color:#888;margin-bottom:16px}
-@media(max-width:768px){.about-strip{grid-template-columns:1fr}}
+.sc-item{position:relative;overflow:hidden;cursor:pointer}
+.sc-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,1,.3,1),filter .6s}
+.sc-item:hover img{transform:scale(1.04);filter:brightness(1.1)}
+.sc-item .sc-label{position:absolute;bottom:0;left:0;right:0;padding:24px 28px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);opacity:0;transition:opacity .4s;display:flex;justify-content:space-between;align-items:flex-end}
+.sc-item:hover .sc-label{opacity:1}
+.sc-label .sc-title{font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:400;color:#fff}
+.sc-label .sc-medium{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.5);font-weight:300}
 
-.contact{text-align:center;padding:80px 40px;border-top:1px solid #eee}
-.contact h3{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#bbb;font-weight:300;margin-bottom:20px}
-.contact a.em{font-size:18px;font-weight:200;color:#555;letter-spacing:.1em;border-bottom:1px solid #ddd;padding-bottom:3px}
-.contact a.em:hover{color:#000;border-color:#000}
-.contact .lks{margin-top:24px;display:flex;justify-content:center;gap:28px}
-.contact .lks a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#bbb}
+.row-hero .sc-item{height:80vh}
+.row-2 .sc-item{height:60vh}
+.row-3 .sc-item{height:50vh}
+.row-21 .sc-item{height:65vh}
+.row-12 .sc-item{height:65vh}
+@media(max-width:768px){.row-hero .sc-item,.row-2 .sc-item,.row-3 .sc-item,.row-21 .sc-item,.row-12 .sc-item{height:auto} .sc-item img{height:auto;aspect-ratio:auto}}
 
-footer{text-align:center;padding:40px;border-top:1px solid #f0f0f0}
-footer p{font-size:9px;letter-spacing:4px;color:#ccc;text-transform:uppercase}
+.divider{display:flex;align-items:center;justify-content:center;padding:80px 48px;gap:24px}
+.divider .line{flex:1;height:1px;background:#1a1a1a}
+.divider .tag{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#333;font-weight:300;white-space:nowrap}
+
+.projects-bar{max-width:1200px;margin:0 auto;padding:40px 48px 120px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+@media(max-width:1024px){.projects-bar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.projects-bar{grid-template-columns:1fr}}
+.pj{text-align:center;padding:40px 20px;border:1px solid #1a1a1a;transition:border-color .3s,background .3s}
+.pj:hover{border-color:#333;background:#111}
+.pj .pj-num{font-size:36px;font-weight:200;color:#222;margin-bottom:12px}
+.pj .pj-name{font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:400;color:#888;margin-bottom:6px}
+.pj .pj-sub{font-size:9px;color:#444;letter-spacing:2px;font-weight:300}
+
+.about{max-width:900px;margin:0 auto;padding:120px 48px;display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start}
+.about img{width:100%;filter:grayscale(.1);border:1px solid #1a1a1a}
+.about .txt h2{font-size:20px;font-weight:200;color:#ccc;line-height:1.8;margin-bottom:20px;letter-spacing:.05em}
+.about .txt p{font-size:13px;line-height:2;color:#555;margin-bottom:14px}
+@media(max-width:768px){.about{grid-template-columns:1fr}}
+
+.contact{text-align:center;padding:100px 40px;border-top:1px solid #151515}
+.contact h3{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#333;font-weight:300;margin-bottom:24px}
+.contact a.em{font-size:18px;font-weight:200;color:#666;letter-spacing:.15em;border-bottom:1px solid #222;padding-bottom:4px;transition:color .3s,border-color .3s}
+.contact a.em:hover{color:#fff;border-color:#fff}
+.contact .lks{margin-top:28px;display:flex;justify-content:center;gap:32px}
+.contact .lks a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#333;transition:color .3s}
+.contact .lks a:hover{color:#fff}
+
+footer{text-align:center;padding:40px;border-top:1px solid #111}
+footer p{font-size:9px;letter-spacing:4px;color:#1a1a1a;text-transform:uppercase}
 </style>
 </head>
 <body>
 
-<nav>
-<div class="n-name">Mengzhen Yang</div>
+<nav id="nav">
+<div class="n-logo">DCT</div>
 <ul class="n-links">
-<li><a href="#projects">Work</a></li>
+<li><a href="#showcase">Work</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
 
 <div class="hero">
-<h1>Mengzhen Yang</h1>
-<div class="hero-line"></div>
-<p>Oil Painting &middot; Mixed Media &middot; Digital &middot; Generative</p>
+<div class="hero-bg"><img src="assets/painting-fox-closeup.png" alt="Crimson Sovereign"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>DCT</h1>
+<div class="hero-sub">Dreams &middot; Canvas &middot; Technology</div>
+</div>
+<div class="scroll-hint">&darr; Scroll</div>
 </div>
 
-<div class="projects" id="projects">
-<div class="p-label">Selected Projects</div>
-<div class="p-grid">
+<div class="showcase" id="showcase">
 
-<a class="p-card" href="project-oil.html">
-<img src="assets/painting-jungle-drip.png" alt="Impasto Oil">
-<div class="p-info">
-<div class="p-title">Impasto Oil Paintings</div>
-<div class="p-sub">Oil on canvas &middot; 2015 &ndash; 2026</div>
-</div>
-</a>
-
-<a class="p-card" href="project-glitch.html">
-<img src="assets/portrait-glitch-blue.png" alt="Portrait Glitch">
-<div class="p-info">
-<div class="p-title">Portrait Glitch</div>
-<div class="p-sub">Charcoal + digital disruption</div>
+<div class="showcase-row row-hero">
+<a class="sc-item" href="project-oil.html">
+<img src="assets/painting-jungle-drip.png" alt="Jungle Descent">
+<div class="sc-label">
+<div><div class="sc-title">Jungle Descent</div><div class="sc-medium">Oil on canvas &middot; 2026</div></div>
 </div>
 </a>
+</div>
 
-<a class="p-card" href="project-astral.html">
+<div class="showcase-row row-21">
+<a class="sc-item" href="project-glitch.html">
+<img src="assets/portrait-glitch-blue.png" alt="Glitch Blue">
+<div class="sc-label">
+<div><div class="sc-title">Portrait Glitch — Blue</div><div class="sc-medium">Charcoal + digital</div></div>
+</div>
+</a>
+<a class="sc-item" href="project-glitch.html">
+<img src="assets/portrait-glitch-pink.png" alt="Glitch Pink">
+<div class="sc-label">
+<div><div class="sc-title">Portrait Glitch — Pink</div><div class="sc-medium">Charcoal + digital</div></div>
+</div>
+</a>
+</div>
+
+<div class="showcase-row row-hero">
+<a class="sc-item" href="project-oil.html">
+<img src="assets/abstract-impasto-final.png" alt="I Am a Growth">
+<div class="sc-label">
+<div><div class="sc-title">I Am a Growth</div><div class="sc-medium">Oil on canvas &middot; 2015–2019 &middot; 3 years</div></div>
+</div>
+</a>
+</div>
+
+<div class="showcase-row row-12">
+<a class="sc-item" href="project-generative.html">
+<img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit">
+<div class="sc-label">
+<div><div class="sc-title">Crimson Spirit</div><div class="sc-medium">Generative &middot; JavaScript Canvas</div></div>
+</div>
+</a>
+<a class="sc-item" href="project-astral.html">
 <img src="assets/fox-rider-crown.png" alt="Astral Sovereign">
-<div class="p-info">
-<div class="p-title">Astral Sovereign</div>
-<div class="p-sub">Digital illustration</div>
+<div class="sc-label">
+<div><div class="sc-title">The Astral Sovereign</div><div class="sc-medium">Digital illustration</div></div>
 </div>
 </a>
+</div>
 
-<a class="p-card" href="project-generative.html">
-<img src="assets/digital-crimson-spirit.png" alt="Generative Art">
-<div class="p-info">
-<div class="p-title">Generative Art</div>
-<div class="p-sub">JavaScript Canvas &middot; 2026</div>
+<div class="showcase-row row-3">
+<a class="sc-item" href="project-oil.html">
+<img src="assets/achilla-oil-2017.png" alt="Achilla">
+<div class="sc-label">
+<div><div class="sc-title">Achilla</div><div class="sc-medium">Oil on canvas &middot; 2017</div></div>
 </div>
 </a>
+<a class="sc-item" href="project-glitch.html">
+<img src="assets/portrait-glitch-green-drip.png" alt="Glitch Green">
+<div class="sc-label">
+<div><div class="sc-title">Glitch Green Drip</div><div class="sc-medium">Mixed media + digital</div></div>
+</div>
+</a>
+<a class="sc-item" href="project-generative.html">
+<img src="assets/digital-signal-decay.png" alt="Signal Decay">
+<div class="sc-label">
+<div><div class="sc-title">Signal Decay</div><div class="sc-medium">Generative &middot; JavaScript Canvas</div></div>
+</div>
+</a>
+</div>
+
+<div class="showcase-row row-2">
+<a class="sc-item" href="project-glitch.html">
+<img src="assets/portrait-glitch-halo.png" alt="Saint of Currency">
+<div class="sc-label">
+<div><div class="sc-title">Saint of Currency</div><div class="sc-medium">Mixed media + digital</div></div>
+</div>
+</a>
+<a class="sc-item" href="project-oil.html">
+<img src="assets/painting-fox-studio.png" alt="Studio View">
+<div class="sc-label">
+<div><div class="sc-title">In Studio</div><div class="sc-medium">Process &middot; oil painting at scale</div></div>
+</div>
+</a>
+</div>
 
 </div>
+
+<div class="divider">
+<div class="line"></div>
+<div class="tag">Series</div>
+<div class="line"></div>
 </div>
 
-<div class="about-strip" id="about">
-<img src="assets/artist-with-fox-painting.png" alt="Mengzhen Yang">
+<div class="projects-bar" id="projects">
+<a class="pj" href="project-oil.html">
+<div class="pj-num">I</div>
+<div class="pj-name">Impasto Oil</div>
+<div class="pj-sub">2015 &ndash; 2026</div>
+</a>
+<a class="pj" href="project-glitch.html">
+<div class="pj-num">II</div>
+<div class="pj-name">Portrait Glitch</div>
+<div class="pj-sub">Charcoal + digital</div>
+</a>
+<a class="pj" href="project-astral.html">
+<div class="pj-num">III</div>
+<div class="pj-name">Astral Sovereign</div>
+<div class="pj-sub">Digital illustration</div>
+</a>
+<a class="pj" href="project-generative.html">
+<div class="pj-num">IV</div>
+<div class="pj-name">Generative Art</div>
+<div class="pj-sub">JavaScript Canvas</div>
+</a>
+</div>
+
+<div class="about" id="about">
+<img src="assets/artist-with-fox-painting.png" alt="DCT">
 <div class="txt">
 <h2>Most of my paintings come from dreams.</h2>
 <p>Born 1993, Ma'anshan, China. I have been painting by hand for over a decade — oil on canvas, charcoal, watercolor. Large-scale, physically intensive works built through palette knife and impasto over months and years. My painting "I Am a Growth" took over three years.</p>
 <p>Recently I began exploring the intersection of traditional painting and digital media — merging hand-drawn charcoal with digital disruption, and translating painterly gesture into generative code.</p>
-<p style="color:#bbb;margin-top:20px;font-size:12px;line-height:2">我的大多数画都来自于梦境。十余年坚持纯手绘创作——油画、炭笔、水彩。每幅画都是数月甚至数年的身体劳动。最近开始研究传统手绘与数字媒体艺术的结合。</p>
+<p style="color:#444;margin-top:20px;font-size:12px;line-height:2">我的大多数画都来自于梦境。十余年坚持纯手绘创作——油画、炭笔、水彩。每幅画都是数月甚至数年的身体劳动。最近开始研究传统手绘与数字媒体艺术的结合。</p>
 </div>
 </div>
 
@@ -122,11 +238,15 @@ footer p{font-size:9px;letter-spacing:4px;color:#ccc;text-transform:uppercase}
 <h3>Contact &amp; Inquiries</h3>
 <a class="em" href="mailto:hihelloaikenni@gmail.com">hihelloaikenni@gmail.com</a>
 <div class="lks">
-<a href="https://github.com/REALID-zz/pencil" target="_blank">Portfolio</a>
+<a href="https://github.com/REALID-zz/pencil" target="_blank">GitHub</a>
 </div>
 </div>
 
-<footer><p>&copy; 2026 Mengzhen Yang</p></footer>
+<footer><p>&copy; 2026 DCT / Mengzhen Yang</p></footer>
 
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80)});
+</script>
 </body>
 </html>
