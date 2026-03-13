@@ -3,670 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MENGZHEN YANG — Chronicles of the Mind</title>
+<title>Mengzhen Yang — Artist</title>
+<meta name="description" content="Mengzhen Yang — Oil painter, visual artist. Large-scale impasto paintings built over months and years.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
-
-  :root {
-    --black: #000;
-    --bg: #050505;
-    --surface: #0a0a0a;
-    --border: #1a1a1a;
-    --gray-900: #111;
-    --gray-800: #1a1a1a;
-    --gray-700: #2a2a2a;
-    --gray-600: #3a3a3a;
-    --gray-500: #555;
-    --gray-400: #777;
-    --gray-300: #999;
-    --gray-200: #bbb;
-    --white: #e8e8e8;
-    --red: #8a2020;
-    --red-dim: #4a1515;
-    --gold: #c8a040;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  ::selection { background: var(--red); color: var(--white); }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Helvetica Neue', 'Helvetica', 'Inter', 'Arial', sans-serif;
-    background: var(--bg);
-    color: var(--gray-300);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    cursor: crosshair;
-  }
-
-  a { color: var(--gray-400); text-decoration: none; transition: color 0.3s; }
-  a:hover { color: var(--white); }
-
-  /* ═══ NAV ═══ */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(180deg, rgba(5,5,5,0.95) 0%, transparent 100%);
-    backdrop-filter: blur(10px);
-  }
-
-  .nav-brand {
-    font-size: 11px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    font-weight: 300;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 300;
-  }
-
-  /* ═══ HERO ═══ */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 50%, rgba(138,32,32,0.06) 0%, transparent 60%);
-  }
-
-  .hero-title {
-    font-size: clamp(32px, 5vw, 64px);
-    font-weight: 200;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-indent: 0.4em;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-line {
-    width: 60px;
-    height: 1px;
-    background: var(--red);
-    margin: 40px 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-sub {
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    font-weight: 300;
-    text-align: center;
-    line-height: 2.2;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px;
-    font-size: 9px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gray-600);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-  }
-
-  /* ═══ SECTIONS ═══ */
-  section {
-    padding: 120px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 9px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    font-weight: 400;
-    margin-bottom: 60px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--gray-800);
-  }
-
-  /* ═══ MANIFESTO ═══ */
-  .manifesto-text {
-    font-size: clamp(18px, 2.5vw, 30px);
-    font-weight: 300;
-    line-height: 2;
-    color: var(--gray-200);
-    max-width: 900px;
-  }
-
-  .manifesto-text em {
-    font-style: italic;
-    color: var(--white);
-    font-weight: 400;
-  }
-
-  .manifesto-attr {
-    margin-top: 50px;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gray-600);
-  }
-
-  /* ═══ POWER GRID ═══ */
-  .power-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--gray-800);
-    border: 1px solid var(--gray-800);
-  }
-
-  @media (max-width: 768px) { .power-grid { grid-template-columns: 1fr; } }
-
-  .power-cell {
-    background: var(--bg);
-    padding: 50px 40px;
-  }
-
-  .power-num {
-    font-size: 48px;
-    font-weight: 100;
-    color: var(--red-dim);
-    margin-bottom: 16px;
-  }
-
-  .power-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 20px;
-  }
-
-  .power-desc {
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--gray-400);
-  }
-
-  /* ═══ GALLERY ═══ */
-  .gallery-grid {
-    display: grid;
-    gap: 2px;
-  }
-
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    background: var(--surface);
-    cursor: pointer;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    filter: grayscale(20%);
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.03);
-    filter: grayscale(0%);
-  }
-
-  .gallery-item .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-
-  .gallery-item:hover .overlay { opacity: 1; }
-
-  .overlay-title {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-
-  .overlay-sub {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--gray-400);
-    text-transform: uppercase;
-  }
-
-  .overlay-medium {
-    font-size: 10px;
-    color: var(--gray-500);
-    margin-top: 8px;
-    letter-spacing: 1px;
-  }
-
-  /* Physical works - large format */
-  .physical-row {
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 2px;
-  }
-
-  .physical-row .gallery-item { aspect-ratio: 3/4; }
-
-  /* Digital works */
-  .digital-row {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .digital-row .gallery-item { aspect-ratio: 1/1; }
-
-  /* Feature work - full width */
-  .feature-row {
-    grid-template-columns: 1fr;
-    margin-bottom: 2px;
-  }
-
-  .feature-row .gallery-item {
-    aspect-ratio: 16/9;
-    max-height: 80vh;
-  }
-
-  @media (max-width: 768px) {
-    .physical-row, .digital-row { grid-template-columns: 1fr; }
-  }
-
-  /* ═══ THE ASK ═══ */
-  .ask-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px;
-    background: var(--gray-800);
-    border: 1px solid var(--gray-800);
-  }
-
-  @media (max-width: 768px) { .ask-grid { grid-template-columns: 1fr; } }
-
-  .ask-cell {
-    background: var(--bg);
-    padding: 50px 40px;
-  }
-
-  .ask-num {
-    font-size: 36px;
-    font-weight: 100;
-    color: var(--red-dim);
-    margin-bottom: 20px;
-  }
-
-  .ask-title {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .ask-desc {
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.9;
-    color: var(--gray-400);
-  }
-
-  /* ═══ FOOTER ═══ */
-  footer {
-    padding: 80px 40px;
-    text-align: center;
-    border-top: 1px solid var(--gray-800);
-  }
-
-  .footer-brand {
-    font-size: 12px;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    color: var(--gray-600);
-    margin-bottom: 20px;
-  }
-
-  .footer-info {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gray-700);
-    line-height: 2.4;
-  }
-
-  /* ═══ LIGHTBOX ═══ */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(0,0,0,0.95);
-    justify-content: center;
-    align-items: center;
-    cursor: zoom-out;
-  }
-
-  .lightbox.active { display: flex; }
-
-  .lightbox img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-  }
-
-  /* ═══ WORK INFO SECTION ═══ */
-  .work-info {
-    padding: 80px 40px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .work-info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 40px;
-  }
-
-  @media (max-width: 768px) { .work-info-grid { grid-template-columns: 1fr 1fr; } }
-
-  .work-card {
-    border-top: 1px solid var(--gray-800);
-    padding-top: 20px;
-  }
-
-  .work-card-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-  }
-
-  .work-card-cn {
-    font-size: 12px;
-    color: var(--gray-500);
-    margin-bottom: 12px;
-  }
-
-  .work-card-type {
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 8px;
-  }
-
-  .work-card-desc {
-    font-size: 11px;
-    line-height: 1.7;
-    color: var(--gray-500);
-  }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:#222;color:#fff}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Helvetica Neue','Inter',sans-serif;
+  background:#0a0a0a;
+  color:#888;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{color:#666;text-decoration:none;transition:color .3s}
+a:hover{color:#fff}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:24px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  mix-blend-mode:difference;
+}
+.nav-name{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;font-weight:300}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#fff;font-weight:300;opacity:.6;transition:opacity .3s}
+.nav-links a:hover{opacity:1;color:#fff}
+
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  padding:60px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('assets/painting-jungle-drip.png') center/cover;
+  filter:brightness(.7);
+  transition:transform 20s linear;
+}
+.hero:hover .hero-bg{transform:scale(1.03)}
+.hero-content{position:relative;z-index:1;max-width:600px}
+.hero h1{
+  font-size:clamp(36px,5vw,60px);font-weight:200;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:#fff;line-height:1.2;text-indent:.3em;
+}
+.hero-line{width:50px;height:1px;background:#fff;margin:28px 0;opacity:.4}
+.hero p{
+  font-size:13px;font-weight:300;line-height:2;
+  color:rgba(255,255,255,.65);letter-spacing:.5px;
+  max-width:480px;
+}
+
+section{padding:100px 40px;max-width:1400px;margin:0 auto}
+.s-label{
+  font-size:9px;letter-spacing:6px;text-transform:uppercase;
+  color:#555;font-weight:400;margin-bottom:50px;
+  display:flex;align-items:center;gap:16px;
+}
+.s-label::after{content:'';flex:1;height:1px;background:#1a1a1a}
+
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.about-img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.3)}
+.about-text h2{
+  font-size:28px;font-weight:200;color:#ccc;
+  letter-spacing:.15em;margin-bottom:30px;line-height:1.5;
+}
+.about-text p{font-size:14px;line-height:2;color:#777;margin-bottom:20px}
+.about-text .stat-row{
+  display:flex;gap:40px;margin-top:40px;padding-top:30px;
+  border-top:1px solid #1a1a1a;
+}
+.stat{text-align:center}
+.stat-num{font-size:28px;font-weight:200;color:#ccc;display:block}
+.stat-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555;margin-top:6px;display:block}
+
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}.about-img{max-height:50vh}}
+
+.gallery{padding:100px 20px;max-width:1600px;margin:0 auto}
+.gallery .s-label{padding:0 20px}
+.masonry{columns:3;column-gap:6px}
+.masonry .item{
+  break-inside:avoid;margin-bottom:6px;
+  position:relative;overflow:hidden;cursor:pointer;
+  background:#111;
+}
+.masonry .item img{
+  width:100%;display:block;
+  transition:transform .8s cubic-bezier(.2,1,.3,1),filter .6s;
+  filter:brightness(.92);
+}
+.masonry .item:hover img{transform:scale(1.02);filter:brightness(1)}
+.masonry .item .cap{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:24px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  transform:translateY(100%);
+  transition:transform .4s cubic-bezier(.2,1,.3,1);
+}
+.masonry .item:hover .cap{transform:translateY(0)}
+.cap-title{font-size:13px;font-weight:500;color:#fff;letter-spacing:2px;text-transform:uppercase}
+.cap-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:4px;letter-spacing:1px}
+
+@media(max-width:1024px){.masonry{columns:2}}
+@media(max-width:600px){.masonry{columns:1}}
+
+.process{
+  padding:120px 40px;max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;
+}
+.process-img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:brightness(.85)}
+@media(max-width:768px){.process{grid-template-columns:1fr}}
+
+.support{
+  padding:120px 40px;
+  max-width:900px;margin:0 auto;
+  text-align:center;
+}
+.support h2{
+  font-size:clamp(24px,3vw,36px);font-weight:200;
+  color:#ccc;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.support>p{font-size:13px;line-height:2;color:#666;margin-bottom:50px;max-width:600px;margin-left:auto;margin-right:auto}
+.support-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#1a1a1a;border:1px solid #1a1a1a}
+.support-card{background:#0a0a0a;padding:40px 30px;text-align:center}
+.support-card h3{
+  font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:#ccc;margin-bottom:16px;font-weight:400;
+}
+.support-card p{font-size:12px;line-height:1.9;color:#555;margin-bottom:24px}
+.support-card a.btn{
+  display:inline-block;
+  padding:10px 28px;
+  border:1px solid #333;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:#999;transition:all .3s;
+}
+.support-card a.btn:hover{border-color:#fff;color:#fff;background:#fff;color:#000}
+@media(max-width:768px){.support-grid{grid-template-columns:1fr}}
+
+.contact{
+  padding:80px 40px;max-width:900px;margin:0 auto;
+  text-align:center;border-top:1px solid #1a1a1a;
+}
+.contact h2{
+  font-size:11px;letter-spacing:6px;text-transform:uppercase;
+  color:#555;margin-bottom:30px;font-weight:300;
+}
+.contact a.email{
+  font-size:clamp(16px,2vw,22px);font-weight:200;
+  color:#ccc;letter-spacing:.1em;
+  border-bottom:1px solid #333;padding-bottom:4px;
+  transition:border-color .3s;
+}
+.contact a.email:hover{border-color:#ccc;color:#fff}
+.contact .links{margin-top:30px;display:flex;justify-content:center;gap:30px}
+.contact .links a{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#444}
+
+footer{
+  padding:60px 40px;text-align:center;
+  border-top:1px solid #111;
+}
+footer p{font-size:9px;letter-spacing:4px;color:#333;text-transform:uppercase}
+
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.97);
+  justify-content:center;align-items:center;cursor:zoom-out;
+}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;object-fit:contain}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-brand">Mengzhen Yang</div>
+  <div class="nav-name">Mengzhen Yang</div>
   <ul class="nav-links">
-    <li><a href="#manifesto">Manifesto</a></li>
-    <li><a href="#sovereignty">Sovereignty</a></li>
-    <li><a href="#works">Works</a></li>
-    <li><a href="#ask">The Ask</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Works</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <h1 class="hero-title">Mengzhen Yang</h1>
-  <div class="hero-line"></div>
-  <div class="hero-sub">
-    Chronicles of the Mind<br>
-    Genesis Pitch — 2026
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Mengzhen Yang</h1>
+    <div class="hero-line"></div>
+    <p>Oil painter. Each work takes months or years — built through palette knife, impasto, and the full weight of the body. Nothing is quick. Nothing is decorative.</p>
   </div>
-  <div class="hero-scroll">Scroll</div>
 </div>
 
-<!-- MANIFESTO -->
-<section id="manifesto">
-  <div class="section-label">Artist Manifesto</div>
-  <div class="manifesto-text">
-    I refuse the partition between <em>artist</em> and <em>engineer</em>, between <em>canvas</em> and <em>laboratory</em>. Da Vinci dissected corpses to understand the machinery of God; Musk launches rockets to escape the gravity of complacency. I paint to <em>rewrite the source code of human perception</em>.
-    <br><br>
-    My work is not decoration. It is not commentary. It is a <em>post-humanist operating system</em> — a set of instructions for consciousness to evolve beyond its biological container. Each painting is a prototype. Each brushstroke is a line of code. Each exhibition is a system deployment.
-    <br><br>
-    The 21st-century artist must be <em>polymath, prophet, and provocateur</em>. We do not wait for institutions to validate us. We <em>architect the institutions ourselves</em>.
-  </div>
-  <div class="manifesto-attr">— Genesis Declaration, 2026</div>
-</section>
-
-<!-- SOVEREIGNTY -->
-<section id="sovereignty">
-  <div class="section-label">The Four Absolute Sovereignties</div>
-  <div class="power-grid">
-    <div class="power-cell">
-      <div class="power-num">I</div>
-      <div class="power-title">Sovereignty of Vision</div>
-      <div class="power-desc">The absolute right to define what constitutes art in the post-human epoch. No institution, no market, no algorithm shall dictate the perimeter of aesthetic truth.</div>
-    </div>
-    <div class="power-cell">
-      <div class="power-num">II</div>
-      <div class="power-title">Sovereignty of Medium</div>
-      <div class="power-desc">The absolute right to transcend the boundaries between physical matter and digital substrate. Oil, titanium, aerogel, neural signals, quantum states — all are pigments.</div>
-    </div>
-    <div class="power-cell">
-      <div class="power-num">III</div>
-      <div class="power-title">Sovereignty of Narrative</div>
-      <div class="power-desc">The absolute right to construct mythologies that supersede existing cultural frameworks. We engineer the primordial narratives from which future civilizations will derive meaning.</div>
-    </div>
-    <div class="power-cell">
-      <div class="power-num">IV</div>
-      <div class="power-title">Sovereignty of Institution</div>
-      <div class="power-desc">The absolute right to restructure the gallery-industrial complex from within. The artist becomes the institution. Museums are laboratories; exhibitions are experiments.</div>
+<section id="about">
+  <div class="s-label">About the Artist</div>
+  <div class="about-grid">
+    <img class="about-img" src="assets/artist-with-fox-painting.png" alt="Mengzhen Yang">
+    <div class="about-text">
+      <h2>I paint because language fails.</h2>
+      <p>Born 1993 in Ma'anshan, China. I work primarily in oil on canvas — large-scale, physically intensive works built through aggressive impasto and palette-knife technique. My painting <em>I Am a Growth</em> took over three years of continuous creation.</p>
+      <p>My practice spans oil painting, charcoal drawing, watercolor, digital illustration, and generative code — unified by an uncompromising aesthetic I call <em>Death Pencil</em>: raw, confrontational, rooted in the tension between control and chaos.</p>
+      <p>I do not sketch first. I begin with color and force. The image reveals itself through accumulation — layer over layer, session over session, sometimes over years.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Years Painting</span></div>
+        <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Works</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">Series</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- WORKS -->
-<section id="works">
-  <div class="section-label">Genesis Sequence — Works</div>
+<div class="gallery" id="gallery">
+  <div class="s-label">Selected Works</div>
+  <div class="masonry">
 
-  <!-- Physical Oil Paintings -->
-  <div class="gallery-grid physical-row">
-    <div class="gallery-item" onclick="openLightbox(this)">
+    <div class="item" onclick="lb(this)">
+      <img src="assets/painting-jungle-drip.png" alt="Jungle Descent" loading="lazy">
+      <div class="cap"><div class="cap-title">Jungle Descent</div><div class="cap-sub">Oil on canvas — 2026</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/painting-fox-closeup.png" alt="Crimson Sovereign" loading="lazy">
+      <div class="cap"><div class="cap-title">Crimson Sovereign</div><div class="cap-sub">Oil on canvas — 2026</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-glitch-halo.png" alt="Saint of Currency" loading="lazy">
+      <div class="cap"><div class="cap-title">Saint of Currency</div><div class="cap-sub">Mixed media + digital glitch</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/abstract-impasto-final.png" alt="I Am a Growth" loading="lazy">
+      <div class="cap"><div class="cap-title">I Am a Growth</div><div class="cap-sub">Oil on canvas — 2015–2019 — 3 years</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/achilla-oil-2017.png" alt="Achilla" loading="lazy">
+      <div class="cap"><div class="cap-title">Achilla</div><div class="cap-sub">Oil on canvas — 36×24 in — 2017</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-glitch-blue.png" alt="Portrait Glitch — Blue" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait Glitch — Blue</div><div class="cap-sub">Mixed media + digital</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/horse-charcoal.png" alt="Horse Study" loading="lazy">
+      <div class="cap"><div class="cap-title">Horse Study</div><div class="cap-sub">Charcoal on paper</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
       <img src="assets/painting-fox-studio.png" alt="Crimson Sovereign — Studio" loading="lazy">
-      <div class="overlay">
-        <div class="overlay-title">Crimson Sovereign</div>
-        <div class="overlay-sub">猩红主权者</div>
-        <div class="overlay-medium">Oil on canvas — 120×180cm — 2026</div>
-      </div>
+      <div class="cap"><div class="cap-title">Crimson Sovereign — Studio</div><div class="cap-sub">Oil on canvas — 120×180 cm</div></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="assets/painting-fox-closeup.png" alt="Crimson Sovereign — Detail" loading="lazy">
-      <div class="overlay">
-        <div class="overlay-title">Crimson Sovereign — Detail</div>
-        <div class="overlay-sub">猩红主权者 — 局部</div>
-        <div class="overlay-medium">Heavy impasto technique — Palette knife & brush</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Fox Rider -->
-  <div class="gallery-grid feature-row">
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="assets/fox-rider-crown.png" alt="The Astral Sovereign" loading="lazy" style="object-position: center 20%;">
-      <div class="overlay">
-        <div class="overlay-title">The Astral Sovereign</div>
-        <div class="overlay-sub">星象主权者</div>
-        <div class="overlay-medium">Digital illustration — Constellation robe series</div>
-      </div>
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-glitch-pink.png" alt="Portrait Glitch — Pink Matrix" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait Glitch — Pink</div><div class="cap-sub">Mixed media + digital</div></div>
     </div>
-  </div>
 
-  <!-- Digital Works -->
-  <div class="gallery-grid digital-row">
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit — Generative" loading="lazy">
-      <div class="overlay">
-        <div class="overlay-title">Crimson Spirit</div>
-        <div class="overlay-sub">猩红之灵 — 生成艺术</div>
-        <div class="overlay-medium">Generative art — JavaScript Canvas — 2400×2400px</div>
-      </div>
+    <div class="item" onclick="lb(this)">
+      <img src="assets/lotus-study.png" alt="Lotus Pod Study" loading="lazy">
+      <div class="cap"><div class="cap-title">Lotus Pod Study</div><div class="cap-sub">Watercolor from life</div></div>
     </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="assets/digital-signal-decay.png" alt="Signal Decay — Generative" loading="lazy">
-      <div class="overlay">
-        <div class="overlay-title">Signal Decay</div>
-        <div class="overlay-sub">信号衰变 — 神经溶解</div>
-        <div class="overlay-medium">Generative art — JavaScript Canvas — 2400×2400px</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Pixel Art -->
-  <div class="gallery-grid feature-row" style="margin-top: 2px;">
-    <div class="gallery-item" onclick="openLightbox(this)" style="aspect-ratio: 1/1; max-height: 60vh;">
+    <div class="item" onclick="lb(this)">
+      <img src="assets/fox-rider-crown.png" alt="The Astral Sovereign" loading="lazy">
+      <div class="cap"><div class="cap-title">The Astral Sovereign</div><div class="cap-sub">Digital illustration</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-glitch-green-drip.png" alt="Portrait Glitch — Green Drip" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait Glitch — Green</div><div class="cap-sub">Mixed media + 3D elements</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-crown.png" alt="Portrait — Crown" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait — Crown</div><div class="cap-sub">Mixed media + digital overlay</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-glitch-frog.png" alt="Portrait Glitch — Frog" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait Glitch — Frog</div><div class="cap-sub">Mixed media + digital glitch</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-outline.png" alt="Portrait — Outline" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait — Outline</div><div class="cap-sub">Mixed media + digital</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/portrait-base.png" alt="Portrait — Charcoal" loading="lazy">
+      <div class="cap"><div class="cap-title">Portrait — Charcoal</div><div class="cap-sub">Charcoal on paper</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/digital-crimson-spirit.png" alt="Crimson Spirit" loading="lazy">
+      <div class="cap"><div class="cap-title">Crimson Spirit</div><div class="cap-sub">Generative art — JavaScript Canvas</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
+      <img src="assets/digital-signal-decay.png" alt="Signal Decay" loading="lazy">
+      <div class="cap"><div class="cap-title">Signal Decay</div><div class="cap-sub">Generative art — JavaScript Canvas</div></div>
+    </div>
+
+    <div class="item" onclick="lb(this)">
       <img src="assets/artwork-pixel-rider-clean.png" alt="Death Pencil Protocol" loading="lazy">
-      <div class="overlay">
-        <div class="overlay-title">Death Pencil Protocol</div>
-        <div class="overlay-sub">死亡铅笔协议</div>
-        <div class="overlay-medium">Pixel art — Digital — 1400×1400px</div>
-      </div>
+      <div class="cap"><div class="cap-title">Death Pencil Protocol</div><div class="cap-sub">Pixel art — Digital</div></div>
     </div>
-  </div>
-</section>
 
-<!-- WORK INFO -->
-<div class="work-info">
-  <div class="work-info-grid">
-    <div class="work-card">
-      <div class="work-card-type">Physical — Oil</div>
-      <div class="work-card-title">Crimson Sovereign</div>
-      <div class="work-card-cn">猩红主权者</div>
-      <div class="work-card-desc">Monumental fox rendered in violent impasto — oil paint sculpted with palette knife. The animal is not depicted but <em>constructed</em> through material force.</div>
-    </div>
-    <div class="work-card">
-      <div class="work-card-type">Digital — Illustration</div>
-      <div class="work-card-title">The Astral Sovereign</div>
-      <div class="work-card-cn">星象主权者</div>
-      <div class="work-card-desc">Crowned figure in constellation robe. A mapping of stellar coordinates at the moment of artistic awakening. The fox as vehicle of terrestrial authority.</div>
-    </div>
-    <div class="work-card">
-      <div class="work-card-type">Digital — Generative</div>
-      <div class="work-card-title">Crimson Spirit / Signal Decay</div>
-      <div class="work-card-cn">猩红之灵 / 信号衰变</div>
-      <div class="work-card-desc">Algorithmic translations of painterly gesture into code. Neural dissolution rendered through procedural strokes. Each execution is unique and unrepeatable.</div>
-    </div>
-    <div class="work-card">
-      <div class="work-card-type">Digital — Pixel</div>
-      <div class="work-card-title">Death Pencil Protocol</div>
-      <div class="work-card-cn">死亡铅笔协议</div>
-      <div class="work-card-desc">Reduction to minimum resolution. The figure persists at the threshold of visibility — consciousness compressed to its most essential pixel representation.</div>
-    </div>
   </div>
 </div>
 
-<!-- THE ASK -->
-<section id="ask">
-  <div class="section-label">The Ask — What We Require</div>
-  <div class="ask-grid">
-    <div class="ask-cell">
-      <div class="ask-num">01</div>
-      <div class="ask-title">Laboratory Access</div>
-      <div class="ask-desc">Full access to a Tier-1 institutional residency program with materials science laboratory, digital fabrication suite, and climate-controlled exhibition space. Minimum 12-month tenure.</div>
+<section class="process">
+  <img class="process-img" src="assets/artist-studio-la.png" alt="Studio">
+  <img class="process-img" src="assets/abstract-impasto-wip.png" alt="Process">
+</section>
+
+<section id="support" class="support">
+  <div class="s-label" style="justify-content:center">Support</div>
+  <h2>Support Independent Art</h2>
+  <p>I am an independent artist with no gallery representation. Every painting is self-funded. Your support directly enables the next work to exist.</p>
+  <div class="support-grid">
+    <div class="support-card">
+      <h3>Buy Original Work</h3>
+      <p>Browse and purchase original paintings, prints, and drawings through Saatchi Art.</p>
+      <a class="btn" href="https://www.saatchiart.com" target="_blank">View Shop</a>
     </div>
-    <div class="ask-cell">
-      <div class="ask-num">02</div>
-      <div class="ask-title">Expert Collaboration</div>
-      <div class="ask-desc">Dedicated collaboration with specialists in fluid dynamics, quantum computing, bioengineering, and advanced materials. Not consultants — co-creators.</div>
+    <div class="support-card">
+      <h3>Monthly Support</h3>
+      <p>Join as a patron. Get studio updates, process videos, and early access to new work.</p>
+      <a class="btn" href="https://www.patreon.com" target="_blank">Patreon</a>
     </div>
-    <div class="ask-cell">
-      <div class="ask-num">03</div>
-      <div class="ask-title">R&D Fund</div>
-      <div class="ask-desc">Dedicated physical-medium R&D fund of $350,000–$500,000 USD for the development of the Genesis prototypes over a 24-month production cycle.</div>
+    <div class="support-card">
+      <h3>Commission</h3>
+      <p>Request a custom oil painting. Large-scale, portrait, or abstract — let's discuss your vision.</p>
+      <a class="btn" href="mailto:hihelloaikenni@gmail.com?subject=Commission Inquiry">Inquire</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">Mengzhen Yang</div>
-  <div class="footer-info">
-    Chronicles of the Mind — Genesis Pitch<br>
-    All works &copy; Mengzhen Yang 2026<br>
-    D&amp;AD New Blood Awards Submission
+<div id="contact" class="contact">
+  <h2>Contact</h2>
+  <a class="email" href="mailto:hihelloaikenni@gmail.com">hihelloaikenni@gmail.com</a>
+  <div class="links">
+    <a href="https://www.saatchiart.com" target="_blank">Saatchi Art</a>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    <a href="https://github.com/REALID-zz/pencil" target="_blank">GitHub</a>
   </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Mengzhen Yang. All rights reserved.</p>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="">
-</div>
+<div class="lightbox" id="lbx" onclick="clb()"><img id="lbi" src="" alt=""></div>
 
 <script>
-function openLightbox(el) {
-  const img = el.querySelector('img');
-  document.getElementById('lightbox-img').src = img.src;
-  document.getElementById('lightbox').classList.add('active');
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+function lb(el){document.getElementById('lbi').src=el.querySelector('img').src;document.getElementById('lbx').classList.add('active')}
+function clb(){document.getElementById('lbx').classList.remove('active')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')clb()});
 </script>
 
 </body>
